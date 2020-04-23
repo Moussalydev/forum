@@ -29,19 +29,8 @@ public class QuestionServices {
         return questionRepository.findAll();
     }
 
-    public ResponseEntity<Question> AfficherLaQuestionDeUser(String username)
-            throws ResourceNotFoundException {
-        Question question = questionRepository.findQuestionByUser_Username(username);
 
-        return ResponseEntity.ok().body(question);
-    }
 
-    public ResponseEntity<Question> AfficherLaQuestionDuJour(LocalDate date)
-            throws ResourceNotFoundException {
-        Question question = questionRepository.findQuestionByDate(date);
-
-        return ResponseEntity.ok().body(question);
-    }
 
 
 }

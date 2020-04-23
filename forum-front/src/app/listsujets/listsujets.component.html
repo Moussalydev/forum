@@ -1,0 +1,33 @@
+<div class="container">
+
+    <button style="margin-left: 75%;" class="btn btn-info" (click)="Ajoutsujet()"> Ajouter sujet </button>
+    
+    <div class="row">
+        <div class="col-md-9" style="margin: auto;">
+            <br>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th> Sujet</th>
+                        <th> Poser question </th>
+
+                    </tr>
+                    <tr *ngFor="let sujet of sujets">
+                        <td> {{sujet.intitule}}</td>
+                        <td> 
+                            <button class="btn btn-info" (click)="poser_question(sujet.id)"> Poser question </button>
+                        </td>
+
+
+                    </tr>
+                </thead>
+
+            </table>
+
+
+
+        </div>
+
+
+    </div>
+</div>

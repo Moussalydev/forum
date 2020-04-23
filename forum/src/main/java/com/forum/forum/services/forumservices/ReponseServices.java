@@ -14,12 +14,11 @@ public class ReponseServices {
     ReponseRepository reponseRepository;
 
     public Reponse AjoutReponse(Reponse reponse) {
-
         return reponseRepository.save(reponse);
     }
+
     //Afficher toutes les questions
     public List<Reponse> AfficherToutesReponses() {
-
         return reponseRepository.findAll();
     }
 

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8" style="margin: auto;">
+            <form [formGroup]="myForm">
+                <div class="form-group">
+                 <!--  <label for="libelle">Libelle </label> -->
+                    <input type="text" id="libelle" class="form-control" formControlName="libelle" placeholder="Entrez votre question">
+                </div>
+
+                <button id="bouton" type="submit" [disabled]="myForm.invalid" class="btn btn-primary" (click)="onSubmitForm()">Soumettre</button>
+              </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="auto">
+   
+    szdz
+    <!-- <div class="row" *ngFor="let question of all_questions">
+        {{question.libelle}}
+
+
+    </div> -->
+
+</div>

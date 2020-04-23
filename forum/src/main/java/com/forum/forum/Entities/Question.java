@@ -14,7 +14,7 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
     private Sujet sujet;
-    private User user;
+    private String auteur;
     private String libelle;
     private LocalDate date;
 
@@ -34,12 +34,12 @@ public class Question {
         this.sujet = sujet;
     }
 
-    public User getUser() {
-        return user;
+    public String getAuteur() {
+        return auteur;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setAuteur(String auteur) {
+        this.auteur = auteur;
     }
 
     public String getLibelle() {
@@ -63,7 +63,7 @@ public class Question {
         return "Question{" +
                 "id=" + id +
                 ", sujet=" + sujet +
-                ", user=" + user +
+                ", auteur='" + auteur + '\'' +
                 ", libelle='" + libelle + '\'' +
                 ", date=" + date +
                 '}';

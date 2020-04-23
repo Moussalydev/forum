@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8" style="margin: auto;">
+            <form [formGroup]="sujetForm">
+                <div class="form-group">
+                    <label for="intitule">Intitule</label>
+                    <input type="text" id="intitule" class="form-control" formControlName="intitule" placeholder="intitule">
+                </div>
+            
+                <button type="submit" [disabled]="sujetForm.invalid" class="btn btn-primary" (click)="onSubmitForm()">Soumettre</button>
+            </form>
+
+
+        </div>
+
+    </div>
+
+</div>
