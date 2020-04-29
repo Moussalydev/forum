@@ -7,6 +7,9 @@ import { QuestionService } from '../services/question.service';
 import $ from "jquery";
 
 
+
+
+
 @Component({
   selector: 'app-ajout-question',
   templateUrl: './ajout-question.component.html',
@@ -25,6 +28,7 @@ export class AjoutQuestionComponent implements OnInit {
       private questionService:QuestionService
       
     ) { }
+    
 
   public questions = {
     "sujet":{},
@@ -38,16 +42,22 @@ export class AjoutQuestionComponent implements OnInit {
         libelle: ['', Validators.required],
       
     });
-   
-
-
   
 
   }
 
   ngOnInit(): void {
+
+    
     this.id = this.route.snapshot.params['id'];
     this.initForm()
+
+   this.questionService.refresh_dat.
+      subscribe(()=>{
+        this.getAllQuestions();
+
+      })
+
     this.ChargerQuestions()
     
     this.sujetService.AfficherSujetParId(this.id)
@@ -55,18 +65,31 @@ export class AjoutQuestionComponent implements OnInit {
               this.sujet =data;
               this.questions.sujet= this.sujet;
               this.questions.auteur="Moussa";
-              
-
-              
-            
+          
         
         }, error => 
         console.log(error)
     );
-    
-    
+
 
   }
+  private getAllQuestions(){
+
+    this.questionService.AfficherToutesLesQuestion().subscribe(
+      data => {
+        this.all_questions = data;
+      },
+        (error) => {
+            console.log(error)
+          
+        }
+    );
+
+
+
+
+  }
+
   sendToBack(question){
     this.questionService.AjouterQuestion(question)
     .subscribe(data =>
@@ -99,37 +122,15 @@ export class AjoutQuestionComponent implements OnInit {
       
     );
     this.questions.libelle = question.libelle;
-    //console.log(this.questions)
+   
     
-      //this.sendToBack(this.questions) 
-      this.rafraichir()
+      this.sendToBack(this.questions) 
+      
       
   }
-  rafraichir(){
-    $("#bouton").click(function(){
-        var libelle_question = $("#libelle").val();
-
-        if($.trim(libelle_question) != ''){
-            $.ajax({
-                url:"ajout-question.component.html",
-                method:"POST",
-                data:{libelle:libelle_question},
-                dataType:"text",
-                success:function(data)
-                {
-                  $("#libelle").val("");
-                }
-
-            });
-        }
-    });
-    setInterval(function(){
-      console.log(document.getElementById("auto").innerHTML)
-
-    },1000);
-  }
+  
  
  
-
+ 
 
 }

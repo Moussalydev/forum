@@ -16,7 +16,8 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent},
   {path:'list-sujet',component:ListsujetsComponent},
   {path:'ajout-sujet',component:AjoutSujetComponent},
-  {path:'question/:id',component:AjoutQuestionComponent}
+  {path:'question/:id',component:AjoutQuestionComponent},
+  {path:'question',component:AjoutQuestionComponent}
 ];
 
 @NgModule({
